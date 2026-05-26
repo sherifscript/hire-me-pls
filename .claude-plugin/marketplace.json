@@ -5,6 +5,7 @@
   "plugins": [
     {
       "name": "hire-me-pls",
+      "displayName": "Hire Me, Please",
       "source": "./",
       "description": "A diagnosis-first job search system: discover, diagnose, tailor, cover, interview prep, story bank."
     }
