@@ -1,7 +1,7 @@
 {
   "name": "hire-me-please",
   "displayName": "Hire Me, Please",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A diagnosis-first job search system. Eight skills covering the full pipeline: discover, diagnose, tailor, cover, interview prep, and story bank.",
   "author": { "name": "sherifscript" },
   "homepage": "https://github.com/sherifscript/hire-me-pls",
