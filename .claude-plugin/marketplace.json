@@ -1,13 +1,21 @@
 {
   "name": "sherifscript",
-  "description": "Plugins by sherifscript. Currently hosts hire-me-pls, a diagnosis-first job search system for Claude.",
+  "description": "Plugins by sherifscript. Currently hosts hire-me-please, a diagnosis-first job search system for Claude.",
   "owner": { "name": "sherifscript" },
   "plugins": [
     {
-      "name": "hire-me-pls",
+      "name": "hire-me-please",
       "displayName": "Hire Me, Please",
       "source": "./",
-      "description": "A diagnosis-first job search system: discover, diagnose, tailor, cover, interview prep, story bank."
+      "description": "A diagnosis-first job search system: discover, diagnose, tailor, cover, interview prep, story bank.",
+      "version": "1.4.0",
+      "author": { "name": "sherifscript" },
+      "homepage": "https://github.com/sherifscript/hire-me-pls",
+      "repository": "https://github.com/sherifscript/hire-me-pls",
+      "license": "CC-BY-NC-4.0",
+      "keywords": ["job-search", "resume", "cv", "cover-letter", "interview-prep", "career"],
+      "category": "productivity",
+      "tags": ["career", "job-search", "automation"]
     }
   ]
 }

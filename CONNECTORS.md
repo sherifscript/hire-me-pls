@@ -29,7 +29,7 @@ opt-in adapters configured in `connectors.yaml`.
 1. Copy `shared/connectors.example.yaml` to `connectors.yaml` at your project root.
 2. Set `enabled: true` for each ~~job board you want to use.
 3. For ~~web scraper connectors: add the actor ID from your ~~web scraper platform.
-4. Run `set up hire-me-pls` (the `job-search-setup` skill) to have the wizard
+4. Run `set up hire-me-please` (the `job-search-setup` skill) to have the wizard
    guide you through connector setup interactively.
 
 See `skills/job-discovery/references/connector-setup.md` for the full setup guide.

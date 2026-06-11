@@ -1,4 +1,4 @@
-# hire-me-pls
+# hire-me-please
 
 A **Claude Code plugin** implementing a diagnosis-first job search system. Install with one command; eight skills cover the full pipeline — discover → diagnose → tailor → cover → interview prep → story bank — with opinionated defaults and named failure-mode guards drawn from a real job search.
 
@@ -8,7 +8,7 @@ A **Claude Code plugin** implementing a diagnosis-first job search system. Insta
 
 Most AI resume tools take a job description and a CV, ask the model to "tailor," and ship whatever comes out. The output reads tailored. It rarely is. The headline shifts, a keyword or two gets sprinkled in, and the same generic bullets appear under every application.
 
-`hire-me-pls` does the opposite. Every CV starts with a one-page **diagnosis** — what is this team actually hiring to fix, what would a great hire deliver in 90 days, what is the real bar, which of the candidate's credentials speaks loudest to that bar, and which JD keywords must appear verbatim. No diagnosis, no CV. The diagnosis drives every bullet on the page.
+`hire-me-please` does the opposite. Every CV starts with a one-page **diagnosis** — what is this team actually hiring to fix, what would a great hire deliver in 90 days, what is the real bar, which of the candidate's credentials speaks loudest to that bar, and which JD keywords must appear verbatim. No diagnosis, no CV. The diagnosis drives every bullet on the page.
 
 The render is built on `docxtpl` with a small set of hard-won rules (`autoescape=True` is mandatory; a `RichText` helper handles inline bold; a seven-check post-render audit catches the specific failure modes that have shipped broken CVs in the past). The cover letter skill takes a voice reference file in the candidate's own writing and refuses to draft without it.
 
@@ -31,7 +31,7 @@ It is opinionated. It will tell you when you're about to skip something the fram
 
 ## What makes this different
 
-| Most AI resume tools | hire-me-pls |
+| Most AI resume tools | hire-me-please |
 | --- | --- |
 | Prompt-and-pray rendering | `docxtpl` with `autoescape=True` enforced; ampersand-strip and empty-bold-bullet regressions guarded by audit checks |
 | One CV style | Modular sections — toggle summary / additional / publications / certifications per user and per application |
@@ -47,10 +47,10 @@ It is opinionated. It will tell you when you're about to skip something the fram
 
 ```bash
 claude plugin marketplace add sherifscript/hire-me-pls
-claude plugin install hire-me-pls@sherifscript
+claude plugin install hire-me-please@sherifscript
 ```
 
-All eight skills install in one command. Say *"set up hire-me-pls"* to run
+All eight skills install in one command. Say *"set up hire-me-please"* to run
 the first-time wizard.
 
 ### Method 2 — Local plugin (development or offline)
@@ -66,7 +66,7 @@ Or add it permanently to your Claude config with `claude plugin install --scope 
 
 1. Clone the repo: `git clone https://github.com/sherifscript/hire-me-pls.git ~/hire-me-pls`
 2. Open Claude desktop → Cowork tab → select the cloned folder as your working directory.
-3. Cowork auto-detects the `skills/` directory. Say *"set up hire-me-pls"* to trigger the setup wizard.
+3. Cowork auto-detects the `skills/` directory. Say *"set up hire-me-please"* to trigger the setup wizard.
 
 ### Method 4 — claude.ai upload
 
@@ -79,7 +79,7 @@ Upload the eight `skills/*/SKILL.md` files to a claude.ai Project's Knowledge. O
 After install, in any Claude session inside the project folder:
 
 ```
-You: set up hire-me-pls
+You: set up hire-me-please
 ```
 
 The setup wizard will:
@@ -112,14 +112,21 @@ See [CHEATSHEET.md](./CHEATSHEET.md) for the full 11-command reference.
 
 **The plugin shows up as "Hire Me Pls" (raw, title-cased name) or its skills appear empty.**
 
-This means the marketplace cache predates v1.3.0, before `displayName: "Hire Me, Please"` and the full `skills/` set landed in the manifest. Update the marketplace and reinstall:
+If skills appear empty, the marketplace cache predates v1.3.0, before `displayName: "Hire Me, Please"` and the full `skills/` set landed in the manifest. If the plugin name itself shows as "Hire Me Pls" or "Hire me pls", see the migration note below — as of v1.4.1 the install name changed.
+
+**Claude Desktop users:** update or re-add the marketplace rather than sideloading a zip — a sideloaded zip won't pick up manifest or marketplace updates on its own.
+
+**Migrating from `hire-me-pls` (pre-v1.4.1) to `hire-me-please`.**
+
+As of v1.4.1 the plugin's `name` changed from `hire-me-pls` to `hire-me-please` (the GitHub repo slug is unchanged — it's still `sherifscript/hire-me-pls`). Existing installs need to uninstall the old name and reinstall the new one:
 
 ```bash
+claude plugin uninstall hire-me-pls@sherifscript
 claude plugin marketplace update sherifscript
-claude plugin install hire-me-pls@sherifscript
+claude plugin install hire-me-please@sherifscript
 ```
 
-**Claude Desktop users:** update or re-add the marketplace (as above) rather than sideloading a zip — a sideloaded zip won't pick up manifest or marketplace updates on its own.
+This rename exists because some app surfaces (e.g. the Claude Desktop plugin directory) title-case the raw `name` field instead of honoring `displayName`, so a `name` of `hire-me-pls` was rendering as "Hire Me Pls" in those UIs. Renaming to `hire-me-please` makes that fallback render as "Hire me please" instead.
 
 ---
 
@@ -131,12 +138,12 @@ The `examples/showcase/` folder contains a complete end-to-end run for a fiction
 
 ## Scope and non-goals
 
-`hire-me-pls` targets the **modern CV** format used across the US, UK, EU, MENA, and most of Asia outside Japan. Explicit non-goals:
+`hire-me-please` targets the **modern CV** format used across the US, UK, EU, MENA, and most of Asia outside Japan. Explicit non-goals:
 
 - **German Lebenslauf** (photo, DOB, marital status, signature) — not supported. The German job market does accept modern CVs, especially for tech and international roles.
 - **Japanese Rirekisho / Shokumukeirekisho** — not supported.
 - **Multi-candidate management** for career coaches — out of scope. Each candidate runs in a separate project folder.
-- **Direct ATS submission** — hire-me-pls produces the documents; you submit them.
+- **Direct ATS submission** — hire-me-please produces the documents; you submit them.
 
 ---
 

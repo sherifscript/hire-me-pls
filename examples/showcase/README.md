@@ -1,6 +1,6 @@
 # Showcase — a complete end-to-end run
 
-This folder is the proof. It shows `hire-me-pls` applied to one fictional candidate, one real-looking role, from career file to finished application.
+This folder is the proof. It shows `hire-me-please` applied to one fictional candidate, one real-looking role, from career file to finished application.
 
 The candidate is **Jordan Park**, a senior product manager moving from B2C consumer apps to B2B SaaS. The target role is **Senior Product Manager, Workflow Automation** at the fictional **Northwind Operations**.
 

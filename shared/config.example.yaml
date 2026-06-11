@@ -1,5 +1,5 @@
 # =============================================================================
-# config.example.yaml — hire-me-pls configuration
+# config.example.yaml — hire-me-please configuration
 #
 # Copy this file to `config/config.yaml` and fill it in. The
 # `job-search-setup` skill writes this file for you interactively; this

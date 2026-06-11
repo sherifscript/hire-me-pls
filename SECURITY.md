@@ -1,6 +1,6 @@
 # Security and privacy
 
-`hire-me-pls` is a public framework, but the data you run it on — your
+`hire-me-please` is a public framework, but the data you run it on — your
 career history, contact details, application history — is private. This file
 explains how the framework keeps the two separate, and what you are
 responsible for.

@@ -1,4 +1,4 @@
-# hire-me-pls — Python dependencies for the CV render scripts.
+# hire-me-please — Python dependencies for the CV render scripts.
 # Install: pip install -r requirements.txt
 
 docxtpl>=0.16.7        # CV rendering via Jinja-templated .docx

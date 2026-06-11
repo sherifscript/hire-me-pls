@@ -1,4 +1,4 @@
-# Contributing to hire-me-pls
+# Contributing to hire-me-please
 
 Thanks for considering a contribution. This is a small, opinionated
 framework — contributions are welcome, but the opinions are load-bearing.
