@@ -23,9 +23,11 @@ shared/                 example YAMLs (committed), scripts (text_to_docx.py), co
 templates/              .docx template sets (OPUS is the primary; others are stubs)
 tests/                  pytest suite — test_autoescape.py, test_bold_runs.py (5 tests)
 config/                 gitignored — config.yaml, branches.yaml, regional-headers.yaml, connectors.yaml
-assets/                 gitignored — career.md, voice/, Blacklist.txt, story bank, session notes
+assets/                 gitignored — career.md, voice/, Blacklist.txt, story bank, session notes, index.txt
 job-log/                gitignored — Job Listings.xlsx and Backup/
+applications/           gitignored — dated [session-date]/[Country]/ session output (paths.session_output_dir)
 interview-prep/         gitignored — interview prep documents
+.scratch/               gitignored — ad-hoc helper scripts, content-map dumps, temp files
 settings.json           plugin-level permissions (python *, pip *)
 requirements.txt        docxtpl, python-docx, docxcompose, openpyxl, PyYAML, pytest
 ```
@@ -69,15 +71,18 @@ All paths are configurable via `config.yaml > paths`. Defaults:
 
 ```
 config/                             config.yaml, branches.yaml, regional-headers.yaml, connectors.yaml
-assets/                             career.md, voice/, Blacklist.txt, Interview Story Bank.txt, Session Notes.txt
+assets/                             career.md, voice/, Blacklist.txt, Interview Story Bank.txt, Session Notes.txt, index.txt
 job-log/                            Job Listings.xlsx and Backup/
-[dd.mm]/[Country]/                  per-day, per-geography session output at repo root
+applications/[session-date]/[Country]/   per-day, per-geography session output (paths.session_output_dir)
   Diagnosis - [Company] - [Title].md
   CV - [Company] - [Title].docx
   Cover Letter - [Company] - [Title].docx
   LinkedIn Messages.txt
 interview-prep/                     interview prep documents
+.scratch/                           ad-hoc helper scripts, content-map dumps, temp files
 ```
+
+`[session-date]` is today's date formatted per `paths.session_date_format` (default `dd.mm.yy`, e.g. `11.06.26`; `mm.dd.yy` for US-style dates).
 
 ## Branch / PR workflow
 
