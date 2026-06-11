@@ -21,7 +21,7 @@ skills/                 8 skill folders (each has SKILL.md + references/ + scrip
   story-bank/
 shared/                 example YAMLs (committed), scripts (text_to_docx.py), conventions.md
 templates/              .docx template sets (OPUS is the primary; others are stubs)
-tests/                  pytest suite — test_autoescape.py, test_bold_runs.py (5 tests)
+tests/                  pytest suite — test_autoescape.py, test_bold_runs.py, test_path_utils.py (11 tests)
 config/                 gitignored — config.yaml, branches.yaml, regional-headers.yaml, connectors.yaml
 assets/                 gitignored — career.md, voice/, Blacklist.txt, story bank, session notes, index.txt
 job-log/                gitignored — Job Listings.xlsx and Backup/
@@ -63,7 +63,7 @@ python -m pytest tests/ -v          # must be green before any PR
 claude plugin validate .             # must pass with no warnings
 ```
 
-`tests/conftest.py` adds `skills/cv-tailor/scripts` to `sys.path`.
+`tests/conftest.py` adds `skills/cv-tailor/scripts` and `shared/scripts` to `sys.path`.
 
 ## Workspace layout (gitignored)
 
@@ -87,3 +87,12 @@ interview-prep/                     interview prep documents
 ## Branch / PR workflow
 
 Main branch is `main`. Feature work goes on named branches, PR to `main`. CI runs on push (`.github/workflows/ci.yml`): SKILL.md frontmatter lint, pytest.
+
+## Releases
+
+Releases are cut by the `plugin-updater` agent (`.claude/agents/plugin-updater.md`) after feature PRs merge. The standard, in short:
+
+- The version is bumped **in sync in three places**: `plugin.json`, the plugin entry in `marketplace.json`, and `metadata.version` in all 8 SKILL.md frontmatters. A CHANGELOG entry ships with every bump.
+- A `vX.Y.Z` git tag is created on the release commit on `main` and pushed. Update prompts for installed users fire off the `version` field in `plugin.json` (after `/plugin marketplace update sherifscript`), not the tag — the tag is the human-facing release marker.
+- The plugin's install id is `hire-me-please` (renamed from `hire-me-pls` in v1.4.1 because some app UIs title-case the raw `name` and ignore `displayName`); the GitHub repo slug stays `sherifscript/hire-me-pls`. Don't rename either.
+- Listing on claude.com/plugins requires submission via platform.claude.com/plugins/submit (community marketplace review); once approved, their CI tracks new commits automatically.
