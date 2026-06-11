@@ -18,13 +18,6 @@ follows [Keep a Changelog](https://keepachangelog.com/).
   `version`, `author`, `homepage`, `repository`, `license`, `keywords` —
   plus `category` and `tags` for richer Directory listings.
 
-### Migration
-
-- Existing installs must reinstall under the new name. See the
-  "Migrating from `hire-me-pls`" section in the README's Troubleshooting
-  for the exact `claude plugin uninstall` / `marketplace update` /
-  `claude plugin install` sequence.
-
 ## v1.4.0 — 2026-06-11
 
 Workflow parity fixes from the first end-to-end trial with friends, plus the

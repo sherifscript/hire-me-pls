@@ -112,21 +112,9 @@ See [CHEATSHEET.md](./CHEATSHEET.md) for the full 11-command reference.
 
 **The plugin shows up as "Hire Me Pls" (raw, title-cased name) or its skills appear empty.**
 
-If skills appear empty, the marketplace cache predates v1.3.0, before `displayName: "Hire Me, Please"` and the full `skills/` set landed in the manifest. If the plugin name itself shows as "Hire Me Pls" or "Hire me pls", see the migration note below — as of v1.4.1 the install name changed.
+If skills appear empty or the name looks stale, the marketplace cache predates the current release — run `claude plugin marketplace update sherifscript`, then reinstall. Some app surfaces (e.g. the Claude Desktop plugin directory) title-case the raw `name` field instead of honoring `displayName: "Hire Me, Please"`, which is why the plugin is named `hire-me-please`.
 
 **Claude Desktop users:** update or re-add the marketplace rather than sideloading a zip — a sideloaded zip won't pick up manifest or marketplace updates on its own.
-
-**Migrating from `hire-me-pls` (pre-v1.4.1) to `hire-me-please`.**
-
-As of v1.4.1 the plugin's `name` changed from `hire-me-pls` to `hire-me-please` (the GitHub repo slug is unchanged — it's still `sherifscript/hire-me-pls`). Existing installs need to uninstall the old name and reinstall the new one:
-
-```bash
-claude plugin uninstall hire-me-pls@sherifscript
-claude plugin marketplace update sherifscript
-claude plugin install hire-me-please@sherifscript
-```
-
-This rename exists because some app surfaces (e.g. the Claude Desktop plugin directory) title-case the raw `name` field instead of honoring `displayName`, so a `name` of `hire-me-pls` was rendering as "Hire Me Pls" in those UIs. Renaming to `hire-me-please` makes that fallback render as "Hire me please" instead.
 
 ---
 
