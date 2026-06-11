@@ -1,6 +1,6 @@
 ---
 name: job-search-pipeline
-description: Orchestrator for hire-me-pls. Chains discover → diagnose → tailor → cover → audit. Owns the shortcut-command DSL (Run [Country], Run CV only, Run Request, Run Blacklist, Run Interview Prep, Run Story Bank Refresh).
+description: Orchestrator for hire-me-please. Chains discover → diagnose → tailor → cover → audit. Owns the shortcut-command DSL (Run [Country], Run CV only, Run Request, Run Blacklist, Run Interview Prep, Run Story Bank Refresh).
 metadata:
   version: 1.4.0
   last_updated: 2026-06-11
@@ -16,7 +16,7 @@ Match user intent to the correct skill before doing anything else:
 
 | User says... | Skill |
 | --- | --- |
-| "set up hire-me-pls" / "first run" / "I just cloned this" | `job-search-setup` |
+| "set up hire-me-please" / "first run" / "I just cloned this" | `job-search-setup` |
 | "find jobs in [X]" / "Run [Country]" / "search [city]" | `job-discovery` → `job-search-pipeline` |
 | "Run Remote" / "search remote" / "find remote roles" / "run the workflow remote" | `job-search-pipeline` (`Run Remote` — routes to the Remote sheet) |
 | "tailor a CV for [company]" / "render a CV" / "Run CV only" | `role-diagnosis` (gate) → `cv-tailor` |
@@ -34,7 +34,7 @@ Match user intent to the correct skill before doing anything else:
 
 ## Session start
 
-At the start of every session in a hire-me-pls repo:
+At the start of every session in a hire-me-please repo:
 
 1. Confirm `config.yaml` exists (check `config/config.yaml` first, then repo root for v1.2.0 backwards compatibility). If not, route to `job-search-setup`.
 2. Load `config.yaml`, `branches.yaml`, `regional-headers.yaml`, `connectors.yaml` from `config.yaml > paths.config_dir`.

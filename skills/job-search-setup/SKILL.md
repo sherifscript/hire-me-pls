@@ -1,6 +1,6 @@
 ---
 name: job-search-setup
-description: First-run wizard for hire-me-pls. Reads the candidate's career file, proposes branches, prompts for voice references and regions, writes config.yaml. Run once per repo before any other skill.
+description: First-run wizard for hire-me-please. Reads the candidate's career file, proposes branches, prompts for voice references and regions, writes config.yaml. Run once per repo before any other skill.
 metadata:
   version: 1.4.0
   last_updated: 2026-06-11
@@ -10,7 +10,7 @@ metadata:
 
 ## When to activate
 
-- User says "set up hire-me-pls", "first run", "I just cloned this", "configure hire-me-pls"
+- User says "set up hire-me-please", "first run", "I just cloned this", "configure hire-me-please"
 - User invokes any other skill and `config.yaml` does not exist (checked at `config/config.yaml`, then repo root for v1.2.0 compatibility) → suggest setup first
 
 ## What it does
@@ -26,9 +26,9 @@ After setup completes, all other skills become operable.
 
 ### Step 0 — Preamble (say this before any question)
 
-Before asking anything, tell the user what hire-me-pls is and what it does:
+Before asking anything, tell the user what hire-me-please is and what it does:
 
-> *"hire-me-pls is a job-search pipeline that runs five stages from a single prompt: it searches job boards for you, scores each role against your career, writes a one-page role diagnosis before any CV is rendered, produces a tailored CV for each selected role, and writes a voice-anchored cover letter. The pipeline runs start to finish from one command — `Run [Country]` — and produces a complete session output folder.*
+> *"hire-me-please is a job-search pipeline that runs five stages from a single prompt: it searches job boards for you, scores each role against your career, writes a one-page role diagnosis before any CV is rendered, produces a tailored CV for each selected role, and writes a voice-anchored cover letter. The pipeline runs start to finish from one command — `Run [Country]` — and produces a complete session output folder.*
 >
 > *Setup takes about 5 minutes. I'll ask you a few questions about your career, which regions you're targeting, and a few preferences — then I'll write the config files and you're ready to search."*
 

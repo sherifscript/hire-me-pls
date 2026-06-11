@@ -1,7 +1,22 @@
 # Changelog
 
-All notable changes to hire-me-pls are recorded here. Format loosely
+All notable changes to hire-me-please are recorded here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/).
+
+## v1.4.1 — 2026-06-11
+
+### Changed
+
+- **Plugin renamed `hire-me-pls` → `hire-me-please`.** Some app surfaces
+  (e.g. the Claude Desktop plugin directory) title-case the raw `name` field
+  instead of honoring `displayName`, so the old `name` was rendering as
+  "Hire Me Pls" in those UIs. The new `name` falls back to "Hire me please".
+  The GitHub repo slug is unchanged (`sherifscript/hire-me-pls`); only the
+  plugin/install name changed.
+- **Marketplace entry enriched.** The `.claude-plugin/marketplace.json`
+  plugin entry now carries the same metadata as `plugin.json` —
+  `version`, `author`, `homepage`, `repository`, `license`, `keywords` —
+  plus `category` and `tags` for richer Directory listings.
 
 ## v1.4.0 — 2026-06-11
 

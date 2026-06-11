@@ -1,6 +1,6 @@
 # Career file — Jordan Park
 
-> This is a fictional career file for the hire-me-pls showcase. It is
+> This is a fictional career file for the hire-me-please showcase. It is
 > written the way the framework expects: free-form prose, no schema. The
 > skills parse it. Jordan Park, Beta Inc, and Alpha Apps are invented.
 

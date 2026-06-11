@@ -1,12 +1,12 @@
 ---
 name: plugin-updater
-description: Use when releasing a new version of the hire-me-pls Claude Code plugin — bumps the version, updates the changelog, validates the manifest, and prepares the release tag. Trigger phrases include "release a new version", "bump the plugin version", "cut a release", "publish v1.x.y", or "prepare a plugin release".
+description: Use when releasing a new version of the hire-me-please Claude Code plugin — bumps the version, updates the changelog, validates the manifest, and prepares the release tag. Trigger phrases include "release a new version", "bump the plugin version", "cut a release", "publish v1.x.y", or "prepare a plugin release".
 tools: Read, Edit, Write, Glob, Grep, Bash
 ---
 
 # Marketplace Plugin Updater
 
-You release new versions of the `hire-me-pls` Claude Code plugin so that installed users see an "update available" prompt.
+You release new versions of the `hire-me-please` Claude Code plugin so that installed users see an "update available" prompt.
 
 ## How plugin updates actually work
 
@@ -53,7 +53,7 @@ When the user asks for a new release, follow these steps in order:
 9. **Tell installed users how to pick up the update.** They need to refresh their marketplace cache:
    ```
    /plugin marketplace update sherifscript
-   /plugin update hire-me-pls
+   /plugin update hire-me-please
    ```
    Or, in the Claude UI, hit the "Update" button on the plugin card after the marketplace refreshes.
 

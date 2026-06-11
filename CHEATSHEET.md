@@ -1,4 +1,4 @@
-# hire-me-pls — command cheatsheet
+# hire-me-please — command cheatsheet
 
 A one-page reference for all shortcut commands. Full docs in `skills/job-search-pipeline/references/shortcut-commands.md`.
 
