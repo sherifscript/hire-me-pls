@@ -2,7 +2,7 @@
 
 ## What this repo is
 
-A Claude Code plugin (`v1.4.1`) implementing a diagnosis-first job search system. Eight skills cover the full pipeline: discover → diagnose → tailor → cover → interview prep → story bank. Installable via `claude plugin install`.
+A Claude Code plugin (`v1.5.0`) implementing a diagnosis-first job search system. Eight skills cover the full pipeline: discover → diagnose → tailor → cover → interview prep → story bank. Installable via `claude plugin install`.
 
 Plugin manifest: `.claude-plugin/plugin.json`. Marketplace definition: `.claude-plugin/marketplace.json`.
 
@@ -92,7 +92,7 @@ Main branch is `main`. Feature work goes on named branches, PR to `main`. CI run
 
 Releases are cut by the `plugin-updater` agent (`.claude/agents/plugin-updater.md`) after feature PRs merge. The standard, in short:
 
-- The version is bumped **in sync in three places**: `plugin.json`, the plugin entry in `marketplace.json`, and `metadata.version` in all 8 SKILL.md frontmatters. A CHANGELOG entry ships with every bump.
+- The version is bumped **in sync in three places**: `plugin.json`, the plugin entry in `marketplace.json`, and `metadata.version` in all 8 SKILL.md frontmatters. Run `python scripts/bump_version.py X.Y.Z` to sync all three at once (or `--check` to verify they agree, e.g. in CI). A CHANGELOG entry and the CLAUDE.md version line stay hand-written and ship with every bump.
 - A `vX.Y.Z` git tag is created on the release commit on `main` and pushed. Update prompts for installed users fire off the `version` field in `plugin.json` (after `/plugin marketplace update sherifscript`), not the tag — the tag is the human-facing release marker.
 - The plugin's install id is `hire-me-please` (renamed from `hire-me-pls` in v1.4.1 because some app UIs title-case the raw `name` and ignore `displayName`); the GitHub repo slug stays `sherifscript/hire-me-pls`. Don't rename either.
 - Listing on claude.com/plugins requires submission via platform.claude.com/plugins/submit (community marketplace review); once approved, their CI tracks new commits automatically.
