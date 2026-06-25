@@ -2,7 +2,7 @@
 
 ## What this repo is
 
-A Claude Code plugin (`v1.5.0`) implementing a diagnosis-first job search system. Eight skills cover the full pipeline: discover → diagnose → tailor → cover → interview prep → story bank. Installable via `claude plugin install`.
+A Claude Code plugin (`v1.6.0`) implementing a diagnosis-first job search system. Eight skills cover the full pipeline: discover → diagnose → tailor → cover → interview prep → story bank. Installable via `claude plugin install`.
 
 Plugin manifest: `.claude-plugin/plugin.json`. Marketplace definition: `.claude-plugin/marketplace.json`.
 
@@ -41,6 +41,7 @@ requirements.txt        docxtpl, python-docx, docxcompose, openpyxl, PyYAML, pyt
 - Config YAML files live in `config/` (gitignored); `shared/*.example.yaml` are the committed templates
 
 **cv-tailor render pipeline** (non-negotiable rules, hard-won from past failures)
+- The scripts only *render* a pre-built `content_map`; the model *authors* every bullet/section into it from the diagnosis. Samey or un-tailored CVs are a spec problem in `role-diagnosis` + `cv-tailor` SKILL text (the diagnosis's "Section angles" block), not a bug in `render_cv.py`.
 - `autoescape=True` is mandatory on every `tpl.render()` call — omitting it silently strips ampersands
 - Call `convert_content_map(cm)` (in `skills/cv-tailor/scripts/md_to_richtext.py`) immediately before render — converts `**phrase**` markers to docxtpl RichText bold runs
 - `run_full_audit()` (in `skills/cv-tailor/scripts/audit.py`) runs after every render; a failed audit means the CV is not shipped
