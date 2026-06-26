@@ -46,6 +46,8 @@ requirements.txt        docxtpl, python-docx, docxcompose, openpyxl, PyYAML, pyt
 - Call `convert_content_map(cm)` (in `skills/cv-tailor/scripts/md_to_richtext.py`) immediately before render — converts `**phrase**` markers to docxtpl RichText bold runs
 - `run_full_audit()` (in `skills/cv-tailor/scripts/audit.py`) runs after every render; a failed audit means the CV is not shipped
 - The template file must not be open in Word when rendering — docxtpl will silently write a corrupt file
+- Inspecting a rendered CV: `python-docx`'s `paragraph.text` returns **empty** for `**bold**`/`labeled` bullets (they render as docxtpl `RichText` runs it doesn't parse). Read raw `word/document.xml` `<w:t>` nodes instead — the bullets are there. (`audit.py`'s `_visible_text` / `_bullet_text` already do this.) Empty `.text` is NOT proof of a render failure.
+- To test an authoring/spec change end-to-end, re-render in `.scratch/` against the **repo's** scripts (`sys.path` → `skills/cv-tailor/scripts`) and `templates/OPUS/full_template.docx`, then read bullet text from raw XML — don't trust the cached installed plugin or `python-docx .text`.
 
 **Skill router** (lives in `skills/job-search-pipeline/SKILL.md`)
 - `job-search-pipeline` is the single entry point for multi-step tasks and all `Run [...]` shortcut commands
